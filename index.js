@@ -1,11 +1,11 @@
 const express = require('express');
+// const path = require('path');
+const logger = require('./middleware/logger');
+
 const app = express();
+app.use('/api/members', require('./routes/api/members'));
+
 const PORT = process.env.PORT || 5000;
-
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
-
 app.listen(PORT, () => {
   console.log(`Lisiting on port: ${PORT}`);
 });
